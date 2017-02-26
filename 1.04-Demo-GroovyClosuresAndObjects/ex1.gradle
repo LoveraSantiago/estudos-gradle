@@ -1,0 +1,9 @@
+task ex1 << {}
+
+def foo = "Um milhao"
+def myClosure = {
+    println "Hello from a closure"
+    println "The value of foo is $foo"
+}
+
+myClosure

@@ -1,0 +1,21 @@
+task ex5 << {}
+
+def noArgs(){
+    println "Called no args"
+}
+
+def oneArg(x){
+    println "Called oneArg $x"
+    x
+}
+
+def twoArgs(x, y){
+    println "Called two args $x, $y"
+    x + y
+}
+
+noArgs()
+oneArg 1
+twoArgs 1, 2
+
+twoArgs(oneArg(1), 2)  

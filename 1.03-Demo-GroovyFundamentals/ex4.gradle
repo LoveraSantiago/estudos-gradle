@@ -1,0 +1,11 @@
+task ex4 << {}
+
+def doubleIt(n){
+    n + n
+}
+
+def foo = 5
+println("doubleIt($foo) = ${doubleIt(foo)}")
+
+foo = "foobar"
+println("doubleIt($foo) = ${doubleIt(foo)}")
