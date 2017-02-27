@@ -1,0 +1,23 @@
+project.task("myTask1");
+task("myTask2");
+task "myTask3";
+
+task myTask4;
+myTask4.description = "O que e mostrado na task lista";
+myTask4.group = "n Header do grupo onde essa task pertence";
+myTask4.doLast { println "Executando o do last "};
+myTask4.doFirst { println "Executando primeiro" };
+myTask4.leftShift { println "Feito isso ainda mais por ultimo"};
+myTask4 << { println "Fazer isso no final "};
+
+task myTask5 << {
+    println "Declarando e executando uma task em uma paulada so"
+}
+
+task myTask6 {
+    description "Aqui descricao";
+    group "Algum grupo"
+    doLast {
+        println "Acao"
+    }
+}

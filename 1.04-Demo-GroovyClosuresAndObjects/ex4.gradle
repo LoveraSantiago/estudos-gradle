@@ -1,0 +1,18 @@
+task ex4 << {}
+class GroovyGreeter{
+    String greeting = "Default greeting";
+    def printGreeting(){ println "Greeting: $greeting"};    
+}
+
+def myGroovyGreeting = new GroovyGreeter();
+myGroovyGreeting.printGreeting();
+myGroovyGreeting.greeting = "My custom greeting";
+myGroovyGreeting.printGreeting();
+
+def greetingClosure = {
+    greeting = "Changed by closure";
+    printGreeting();
+}
+
+greetingClosure.delegate = myGroovyGreeting;
+greetingClosure()

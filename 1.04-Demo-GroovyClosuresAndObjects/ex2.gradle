@@ -1,0 +1,11 @@
+task ex2 << {}
+
+def doubleIt = { x -> x + x }
+
+def applyTwice(func, arg){
+    func(func(arg));
+}
+
+def foo = 5;
+def fooDoubledTwice = applyTwice(doubleIt, foo);
+println "Applyinc doubleIt twice to $foo equals $fooDoubledTwice";

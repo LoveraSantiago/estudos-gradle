@@ -1,0 +1,8 @@
+task ex3 << {}
+
+def myList = ["Gradle", "Groovy", "Android"];
+
+def printItem = {item -> println "List item: $item"};
+myList.each(printItem);
+
+myList.each{println "Closure inline iterando $it"}

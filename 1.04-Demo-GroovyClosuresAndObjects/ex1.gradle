@@ -6,4 +6,6 @@ def myClosure = {
     println "The value of foo is $foo"
 }
 
-myClosure
+myClosure();
+def variavel = myClosure;
+variavel();
