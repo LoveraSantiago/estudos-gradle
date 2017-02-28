@@ -9,7 +9,7 @@
 
     1. Configure dependencies for the "brew", "pour" and "drink" tasks
     such that to drink my coffee I must first pour it, and pouring my
-    coffee requires me to first brew it.
+    coffee requires me to first brew it. - ok
 
     2. Configure dependencies for the "drink" and "addSweetener" tasks
     such that adding sweetener requires that my coffee be poured and if
@@ -39,6 +39,7 @@ task brew {
 }
 
 task pour {
+    dependsOn "brew"
     doLast {
         println "Pouring. Glug, glug, glug."
     }
@@ -51,6 +52,7 @@ task addSweetener {
 }
 
 task drink {
+    dependsOn "pour"
     doLast {
         println "Drinking. Gulp, gulp, gulp."
     }
