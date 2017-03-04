@@ -10,6 +10,7 @@ myTask4.doFirst { println "Executando primeiro" };
 myTask4.leftShift { println "Feito isso ainda mais por ultimo"};
 myTask4 << { println "Fazer isso no final "};
 
+//<< é um atalho para doLast
 task myTask5 << {
     println "Declarando e executando uma task em uma paulada so"
 }

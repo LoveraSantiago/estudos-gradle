@@ -1,0 +1,21 @@
+class MyTask extends DefaultTask{
+    @TaskAction
+    void fazerAcao(){
+        println 'Ola mundo'
+    }
+}
+
+task ola(type: MyTask)
+
+class Comprimentador extends DefaultTask{
+    String nomePessoa
+
+    @TaskAction
+    void comprimentar(){
+        println "Ola $nomePessoa"
+    }
+}
+
+task comprimentar(type: Comprimentador){
+    nomePessoa "Santuga"
+}
