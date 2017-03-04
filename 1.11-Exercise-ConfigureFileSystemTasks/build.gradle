@@ -7,7 +7,7 @@
 
     1. Create a task named "copyWeb". This task should perform the following:
         a) Copy files from "src/web" to a folder "build/web".
-        b) Copy all .txt files from "src/docs" to folder "build/web/help".
+        b) Copy all .txt files from "src/docs" to folder "build/web/help". - ok
 
     2. Create a task named "bundleWeb". This task should perform the following:
         a) Create a zip file located in the "build" folder named "web.zip".
@@ -24,3 +24,29 @@
     4. Create a task named "deleteHelp". This task should perform the following:
         a) Delete the "help" folder created by the "copyWeb" task.
 */
+
+task copyWeb(type: Copy){
+    from('src/web'){
+        into ''
+    }
+    from('src/docs'){
+        include '*.txt'
+        into 'help'
+    }
+    into 'build/web'
+}
+
+task bundleWeb(type: Zip, dependsOn: copyWeb){
+    baseName = 'web'
+    destinationDir = file('build')
+    from 'build/web'
+    exclude 'images/**'
+}
+
+task unpackBundle(type: Copy, dependsOn: bundleWeb){
+    from zipTree(file('build/web.zip'))
+    into 'build/exploded'
+}
+
+//parei no 3
+https://docs.gradle.org/current/userguide/working_with_files.html ver ziptree
