@@ -6,13 +6,13 @@ and an archive task for you to modify.
 
 Exercises:
 
-1. Run the "bundleWeb" task and note the error displayed by Gradle.
+1. Run the "bundleWeb" task and note the error displayed by Gradle. - ok
 
 2. Add the appropriate property to the gradle.properties file so that the
-"bundleWeb" task will create a zip file in a folder "build".
+"bundleWeb" task will create a zip file in a folder "build". - ok
 
 3. Run the "bundleWeb" task by passing the value of the "webOutputDir" property
-via the command line so that the zip file is created in a folder "build2".
+via the command line so that the zip file is created in a folder "build2". - ok
 
 4. Define an extra project property in your build script whose value
 determines the name of the zip file created by "bundleWeb" (Continue passing
@@ -22,7 +22,19 @@ in the webOutputDir property via the command line).
 
 task bundleWeb(type: Zip) {
     baseName = 'web'
-    destinationDir = file(webOutputDir)
-
-    from 'src/web'
+    destinationDir = file(webOutputDir)    
+    from 'src/web'   
 }
+
+task printarResultado{
+    dependsOn bundleWeb
+     doLast{
+        println "criado zip em " + webOutputDir
+    }
+}
+
+ext{
+    webOutputDir = "qq"
+}
+
+//o que é ad hoc?

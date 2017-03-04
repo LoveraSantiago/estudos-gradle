@@ -1,0 +1,9 @@
+task propriedades{
+    doLast{
+        println ambiente;
+    }
+}
+
+ext {
+    ambiente = "producao"
+}

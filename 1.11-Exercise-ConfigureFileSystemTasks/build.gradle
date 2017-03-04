@@ -12,11 +12,11 @@
     2. Create a task named "bundleWeb". This task should perform the following:
         a) Create a zip file located in the "build" folder named "web.zip".
         b) Include all the files copied by the "copyWeb" task except the
-        "images" directory.
+        "images" directory. - ok
 
     3. Create a task named "unpackBundle". This task should perform the following:
         a) Expand the zip file created by the "bundleWeb" task.
-        b) Copy the contents to a folder "build/exploded".
+        b) Copy the contents to a folder "build/exploded". - ok
 
     HINT: There isn't an UnZip task, so what task type do you need? You're kinda copying files so...
     HINT: https://docs.gradle.org/current/dsl/org.gradle.api.Project.html#org.gradle.api.Project:zipTree(java.lang.Object)
@@ -48,5 +48,10 @@ task unpackBundle(type: Copy, dependsOn: bundleWeb){
     into 'build/exploded'
 }
 
-//parei no 3
-https://docs.gradle.org/current/userguide/working_with_files.html ver ziptree
+task deleteHelp(type: Delete){
+    dependsOn copyWeb
+    delete 'build/web/help'
+    followSymlinks = true
+}
+
+
