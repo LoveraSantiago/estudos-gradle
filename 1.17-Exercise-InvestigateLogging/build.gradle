@@ -8,16 +8,16 @@ options to adjust the amount of logging output we receive.
 Exercises:
 
 1. Add logging statements at the beginning and end of the task action for
-   the HelloTask at the INFO level.
+   the HelloTask at the INFO level. - ok
 2. Execute the "hello" task with the appropriate command line options such
-   that our newly added logging statements are shown in the console output.
+   that our newly added logging statements are shown in the console output. - ok
 3. Modify the `println()` call in our task action to instead be a logging
-   statement at the LIFECYCLE level.
-4. Execute the "hello" task and confirm the output.
+   statement at the LIFECYCLE level. - ok
+4. Execute the "hello" task and confirm the output. -ok
 5. Execute the "hello" task with the appropriate command line options such
-   that the text "Hello World" is no longer written to the console output.
+   that the text "Hello World" is no longer written to the console output. - ok
 6. Uncomment and run the "derpy" task below, then use "--stacktrace" to find
-   the error.
+   the error. - ok
 7. CHALLENGE! Log "Catch me if you can" at DEBUG level, then use grep (or
     findstr on Windows) to find that message in the logs.
 
@@ -28,12 +28,15 @@ task hello(type: HelloTask)
 class HelloTask extends DefaultTask {
     @TaskAction
     void doAction() {
-        println 'Hello World'
+        logger.info("log no inicio")
+        logger.lifecycle('Hello World again')
+        logger.info("log no final")
     }
 }
 
-/*
+
 task derpy << {
-    primp "Herp de derp"
+    print "Herp de derp"
+    logger.debug('catch me if you can')
 }
-*/
+
