@@ -13,8 +13,8 @@ Exercises:
 4. Build the project and ensure there are no errors. - ok
 5. Add a task called 'zipDeps' that creates a Zip file including all the
    files from the 'deps' configuration. Assign a baseName of 'dependencyArchive'
-   and a  classifier of 'deps' to the archive.
-6. Run the 'zipDeps' task and confirm it includes the 'guava' JAR.
+   and a  classifier of 'deps' to the archive. - ok
+6. Run the 'zipDeps' task and confirm it includes the 'guava' JAR. - ok
 
 Hint: Take a look at the Configuration DSL Reference page for how to make
 one configuration extend from another.
@@ -41,5 +41,12 @@ dependencies{
 task zipDeps(type: Zip){
     baseName = 'dependencyArchive'
     classifier = 'deps'
+    from configurations.deps
+}
+
+task zipNovo(type: Zip){
+    baseName = "Foo"
+    classifier = "SNAPSHOT"
+    version = "4.2"
     from configurations.deps
 }
