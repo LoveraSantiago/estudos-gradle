@@ -7,10 +7,10 @@ project.
 
 Exercises:
 
-1. Import the project into Android Studio.
+1. Import the project into Android Studio. - ok
 2. Build the project and deploy it onto a device (or emulator). Note the
    application id shown on the main activity.
-3. Set the application id suffix for the 'debug' build type to 'debug.
+3. Set the application id suffix for the 'debug' build type to 'debug. - ok
 4. Rebuild your project and deploy it onto your device.
 5. Confirm that the application id shown includes the configured suffix.
 
@@ -21,7 +21,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.1"
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         applicationId "com.udacity.gradle.buildtypes"
@@ -50,4 +50,17 @@ To use our solution, uncomment the following line.
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:24.1.1'
+}
+
+//task appStart(type: Exec, dependsOn: 'installDebug'){
+//    commandLine 'cmd', '/c', 'adb', 'shell', 'am', 'start', '-n', 'com.udacity.gradle.buildtypes/.MainActivityStaa'
+//}
+
+android{
+    buildTypes{
+        debug{
+            applicationIdSuffix '.debug'
+        }
+        raioNome{}
+    }
 }

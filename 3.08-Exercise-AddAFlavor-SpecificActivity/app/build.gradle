@@ -6,9 +6,9 @@ launch a new activity that displays a joke, while the free flavor will display
 a toast telling the user to upgrade to the paid version.
 
 Exercises:
-
-1. Import the project into Android Studio.
-2. Build the project and deploy it onto a device (or emulator).
+VER http://stackoverflow.com/questions/16737006/using-build-flavors-structuring-source-folders-and-build-gradle-correctly
+1. Import the project into Android Studio. - ok
+2. Build the project and deploy it onto a device (or emulator). - ok
 3. Declare free and paid flavors, and replicate MainActivity across the flavors.
 4. Build and deploy both flavors of your app to confirm that everything still
    works.
@@ -27,7 +27,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.1"
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         applicationId "com.udacity.gradle.flavorspecificactivity"
@@ -40,6 +40,14 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors{
+        free{
+            applicationId 'com.udacity.gradle.flavorspecificactivity.free'
+        }
+        paid{
+            applicationId 'com.udacity.gradle.flavorspecificactivity.paid'
         }
     }
 }
