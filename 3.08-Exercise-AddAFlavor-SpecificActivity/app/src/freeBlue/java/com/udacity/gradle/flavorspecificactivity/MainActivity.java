@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     public void tellJoke(View view) {
 
         Context context = this;
-        CharSequence text = this.getString(R.string.toast_text);
+        CharSequence text = this.getString(R.string.texto_gratis);
         int duration = Toast.LENGTH_LONG;
 
         Toast toast = Toast.makeText(context, text, duration);
